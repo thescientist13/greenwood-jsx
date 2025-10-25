@@ -1,0 +1,25 @@
+diff --git a/node_modules/wc-compiler/src/jsx-loader.js b/node_modules/wc-compiler/src/jsx-loader.js
+index fd31980..0ca4b1a 100644
+--- a/node_modules/wc-compiler/src/jsx-loader.js
++++ b/node_modules/wc-compiler/src/jsx-loader.js
+@@ -238,6 +238,7 @@ export function parseJsx(moduleURL) {
+     transforms: ['typescript', 'jsx'],
+     jsxRuntime: 'preserve'
+   });
++
+   // would be nice if we could do this instead, so we could know ahead of time
+   // const { inferredObservability } = await import(moduleURL);
+   // however, this requires making parseJsx async, but WCC acorn walking is done sync
+diff --git a/node_modules/wc-compiler/src/wcc.js b/node_modules/wc-compiler/src/wcc.js
+index c3ace2d..867e3b7 100644
+--- a/node_modules/wc-compiler/src/wcc.js
++++ b/node_modules/wc-compiler/src/wcc.js
+@@ -90,7 +90,7 @@ function registerDependencies(moduleURL, definitions, depth = 0) {
+ 
+         // would like to decouple .jsx from the core, ideally
+         // https://github.com/ProjectEvergreen/wcc/issues/122
+-        if (!isBareSpecifier && ['js', 'jsx', 'ts'].includes(extension)) {
++        if (!isBareSpecifier && ['js', 'jsx', 'ts', 'tsx'].includes(extension)) {
+           const dependencyModuleURL = new URL(specifier, moduleURL);
+ 
+           registerDependencies(dependencyModuleURL, definitions, nextDepth);
