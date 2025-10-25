@@ -24,7 +24,8 @@
     "build": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood build",
     "serve": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood serve",
     "start": "pnpm run build && pnpm run serve",
-    "check": "tsc"
+    "check": "tsc",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@greenwood/cli": "^0.34.0-alpha.0",
@@ -32,6 +33,7 @@
     "@greenwood/plugin-import-jsx": "^0.34.0-alpha.0",
     "@greenwood/plugin-import-raw": "^0.34.0-alpha.0",
     "escodegen": "^2.1.0",
+    "patch-package": "^8.0.1",
     "typescript": "^5.8.2"
   }
 }

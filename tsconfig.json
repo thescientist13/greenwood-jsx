@@ -9,7 +9,8 @@
     "verbatimModuleSyntax": true,
     "noEmit": true,
     "checkJs": false,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "jsx": "preserve"
   },
   "exclude": [
     "node_modules",

@@ -1,4 +1,7 @@
+// @ts-nocheck ts(7026)
 export default class Counter extends HTMLElement {
+  count: number;
+
   constructor() {
     super();
     this.count = 0;
