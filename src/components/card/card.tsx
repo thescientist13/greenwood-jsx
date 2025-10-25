@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { UpdateModalEvent } from '../modal/modal.tsx';
-// TODO: CSS is not working
 // import sheet from './card.css' with { type: 'css' };
 
 export default class Card extends HTMLElement {

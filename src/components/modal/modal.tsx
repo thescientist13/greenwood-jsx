@@ -1,5 +1,4 @@
 // @ts-nocheck
-// TODO: CSS is not working
 // import sheet from './modal.css' with { type: 'css' };
 
 /**
