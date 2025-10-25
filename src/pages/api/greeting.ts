@@ -1,4 +1,4 @@
-import { getMessage } from '../../services/message.js';
+import { getMessage } from '../../services/message.ts';
 
 export async function handler(request: Request) {
   const params = new URLSearchParams(request.url.slice(request.url.indexOf('?')));

@@ -1,5 +1,5 @@
 import { renderFromHTML } from 'wc-compiler';
-import { getProducts } from '../../services/products.js';
+import { getProducts } from '../../services/products.ts';
 
 export async function handler(request: Request) {
   const formData = await request.formData();

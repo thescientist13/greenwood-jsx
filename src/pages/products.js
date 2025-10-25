@@ -1,5 +1,5 @@
 import '../components/card.js';
-import { getProducts } from '../services/products.js';
+import { getProducts } from '../services/products.ts';
 
 export default class ProductsPage extends HTMLElement {
   async connectedCallback() {
