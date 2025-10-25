@@ -1,0 +1,37 @@
+{
+  "name": "greenwood-jsx",
+  "version": "1.0.0",
+  "description": "A demonstration repo for deploying a full-stack Greenwood app using WCC w/ JSX",
+  "homepage": "https://github.com/thescientist13/greenwood-jsx#readme",
+  "author": "Owen Buckley <owen@thegreenhouse.io>",
+  "license": "ISC",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thescientist13/greenwood-jsx.git"
+  },
+  "keywords": [
+    "Greenwood",
+    "Vercel",
+    "Web Components",
+    "Serverless",
+    "WCC",
+    "SSR",
+    "JSX"
+  ],
+  "scripts": {
+    "dev": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood develop",
+    "build": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood build",
+    "serve": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood serve",
+    "start": "pnpm run build && pnpm run serve",
+    "check": "tsc"
+  },
+  "devDependencies": {
+    "@greenwood/cli": "^0.34.0-alpha.0",
+    "@greenwood/plugin-adapter-vercel": "^0.34.0-alpha.0",
+    "@greenwood/plugin-import-jsx": "^0.34.0-alpha.0",
+    "@greenwood/plugin-import-raw": "^0.34.0-alpha.0",
+    "escodegen": "^2.1.0",
+    "typescript": "^5.8.2"
+  }
+}
