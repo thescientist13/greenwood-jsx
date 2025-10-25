@@ -27,7 +27,7 @@ export async function handler(request: Request) {
         }).join('')
       }
     `, [
-      new URL('../../components/card.tsx', import.meta.url)
+      new URL('../../components/card/card.tsx', import.meta.url)
     ]);
 
     body = html;

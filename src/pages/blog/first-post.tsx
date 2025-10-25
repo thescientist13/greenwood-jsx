@@ -1,5 +1,10 @@
+// @ts-nocheck
 export default class FirstPostsPage extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `<h2>First Post Page</h2>`
+    this.render();
+  }
+
+  render() {
+    return (<h2>First Post Page</h2>)
   }
 }

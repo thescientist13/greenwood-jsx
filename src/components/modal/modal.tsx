@@ -1,3 +1,7 @@
+// @ts-nocheck
+// TODO: CSS is not working
+// import sheet from './modal.css' with { type: 'css' };
+
 /**
  * An event that's fired when the modal content needs to be updated
  */
@@ -12,47 +16,6 @@ export class UpdateModalEvent extends Event {
   }
 }
 
-const template = document.createElement('template');
-
-template.innerHTML = `
-  <style>
-    dialog {
-      border: 1px solid #818181;
-      text-align: center;
-      width: 40%;
-      border-radius: 10px;
-      padding: 2rem 1rem;
-      min-height: 200px;
-      background-color: #fff;
-      overflow-x: hidden;
-    }
-    
-    h3 {
-      font-size: 1.85rem;
-    }
-    
-    button {
-      background: var(--color-accent);
-      color: var(--color-white);
-      padding: 1rem 2rem;
-      border: 0;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    @media(max-width: 768px) {
-      dialog {
-        width: 80%;
-      }
-    }
-  </style>
-  <dialog>
-    <h3 id="content"></h3>
-    <button autofocus>Close</button>
-  </dialog>
-`;
-
 export default class Modal extends HTMLElement {
 
   updateModal(content: string) {
@@ -65,10 +28,10 @@ export default class Modal extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this.shadowRoot) {
-      this.attachShadow({ mode: 'open' });
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
+    this.attachShadow({ mode: 'open' });
+    this.render();
+
+    // this.shadowRoot.adoptedStyleSheets = [sheet];
 
     // setup event handlers for updating and closing the dialog
     window.addEventListener('update-modal', (event: UpdateModalEvent) => {
@@ -81,6 +44,15 @@ export default class Modal extends HTMLElement {
     modal.querySelector('button').addEventListener("click", () => {
       modal.close();
     });
+  }
+
+  render() {
+    return (
+      <dialog>
+        <h3 id="content"></h3>
+        <button autofocus>Close</button>
+      </dialog>
+    )
   }
 }
 
