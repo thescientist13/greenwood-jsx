@@ -4,11 +4,6 @@ export default class Card extends HTMLElement {
 
   selectItem() {
     const content = `You selected the "${this.title}"`;
-    const itemSelectedEvent = new CustomEvent("update-modal", {
-      detail: {
-        content: `You selected the "${this.title}"`,
-      },
-    });
 
     window.dispatchEvent(new UpdateModalEvent(content));
   }
