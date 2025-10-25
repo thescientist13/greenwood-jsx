@@ -1,3 +1,17 @@
+/**
+ * An event that's fired when the modal content needs to be updated
+ */
+export class UpdateModalEvent extends Event {
+  static readonly eventName = 'update-modal';
+
+  readonly content: string;
+
+  constructor(content: string) {
+    super(UpdateModalEvent.eventName, { bubbles: true, composed: true });
+    this.content = content;
+  }
+}
+
 const template = document.createElement('template');
 
 template.innerHTML = `
@@ -41,11 +55,12 @@ template.innerHTML = `
 
 export default class Modal extends HTMLElement {
 
-  updateModal(detail) {
-    console.log(`selected item is => ${detail.content}`);
+  updateModal(content: string) {
+    console.log({ content })
+    console.log(`selected item is => ${content}`);
     const modal = this.shadowRoot.querySelector('dialog');
     
-    modal.querySelector('#content').textContent = detail.content;
+    modal.querySelector('#content').textContent = content;
     modal.showModal();
   }
 
@@ -56,8 +71,9 @@ export default class Modal extends HTMLElement {
     }
 
     // setup event handlers for updating and closing the dialog
-    window.addEventListener('update-modal', (event) => {
-      this.updateModal(event.detail);
+    window.addEventListener('update-modal', (event: UpdateModalEvent) => {
+      console.log({ event });
+      this.updateModal(event.content);
     })
 
     const modal = this.shadowRoot.querySelector('dialog');

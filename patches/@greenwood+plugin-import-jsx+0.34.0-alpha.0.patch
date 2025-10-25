@@ -1,17 +1,21 @@
 diff --git a/node_modules/@greenwood/plugin-import-jsx/src/index.js b/node_modules/@greenwood/plugin-import-jsx/src/index.js
-index bc7e218..0798b43 100644
+index bc7e218..83b93bb 100644
 --- a/node_modules/@greenwood/plugin-import-jsx/src/index.js
 +++ b/node_modules/@greenwood/plugin-import-jsx/src/index.js
-@@ -9,7 +9,7 @@ import { parseJsx } from "wc-compiler/src/jsx-loader.js";
+@@ -7,22 +7,21 @@ import escodegen from "escodegen";
+ import { parseJsx } from "wc-compiler/src/jsx-loader.js";
+ 
  class ImportJsxResource {
-   constructor(compilation) {
+-  constructor(compilation) {
++  constructor(compilation, options = {}) {
      this.compilation = compilation;
 -    this.extensions = ["jsx"];
 +    this.extensions = ["jsx", "tsx"];
      this.contentType = "text/javascript";
++    this.servePage = options.servePages ? 'dynamic' : null;
    }
  
-@@ -17,7 +17,7 @@ class ImportJsxResource {
+   async shouldServe(url) {
      const { pathname, protocol } = url;
      const ext = pathname.split(".").pop();
  
@@ -20,3 +24,38 @@ index bc7e218..0798b43 100644
    }
  
    async serve(url) {
+-    // refactor when WCC refactors
+-    // https://github.com/ProjectEvergreen/wcc/issues/116
+     const tree = parseJsx(url);
+     const result = escodegen.generate(tree);
+ 
+@@ -35,11 +34,11 @@ class ImportJsxResource {
+ }
+ 
+ /** @type {import('./types/index.d.ts').ImportJsxPlugin} */
+-const greenwoodPluginImportJsx = () => [
++const greenwoodPluginImportJsx = (options = {}) => [
+   {
+     type: "resource",
+     name: "plugin-import-jsx:resource",
+-    provider: (compilation) => new ImportJsxResource(compilation),
++    provider: (compilation) => new ImportJsxResource(compilation, options),
+   },
+ ];
+ 
+diff --git a/node_modules/@greenwood/plugin-import-jsx/src/types/index.d.ts b/node_modules/@greenwood/plugin-import-jsx/src/types/index.d.ts
+index 0f42b24..8c02830 100644
+--- a/node_modules/@greenwood/plugin-import-jsx/src/types/index.d.ts
++++ b/node_modules/@greenwood/plugin-import-jsx/src/types/index.d.ts
+@@ -1,6 +1,10 @@
+ import type { ResourcePlugin } from "@greenwood/cli";
+ 
+-export type ImportJsxPlugin = () => [ResourcePlugin];
++type Options = {
++  servePages: boolean;
++}
++
++export type ImportJsxPlugin = (options?: Options) => [ResourcePlugin];
+ 
+ declare module "@greenwood/plugin-import-jsx" {
+   export const greenwoodPluginImportJsx: ImportJsxPlugin;

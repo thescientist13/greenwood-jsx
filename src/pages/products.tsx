@@ -1,4 +1,4 @@
-import '../components/card.js';
+import '../components/card.tsx';
 import { getProducts } from '../services/products.ts';
 
 export default class ProductsPage extends HTMLElement {
