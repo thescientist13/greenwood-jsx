@@ -5,7 +5,9 @@ import { greenwoodPluginImportRaw } from '@greenwood/plugin-import-raw';
 
 export default {
   plugins: [
-    greenwoodPluginImportJsx(),
+    greenwoodPluginImportJsx({
+      servePages: true
+    }),
     greenwoodPluginImportRaw(),
     greenwoodPluginAdapterVercel({
       runtime: 'nodejs22.x'

@@ -20,7 +20,7 @@ export async function handler(request: Request) {
       }).join('')
     }
   `, [
-    new URL('../../components/card.js', import.meta.url)
+    new URL('../../components/card/card.tsx', import.meta.url)
   ]);
 
   return new Response(html, {
