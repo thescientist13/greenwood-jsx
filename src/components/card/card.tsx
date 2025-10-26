@@ -1,10 +1,9 @@
 import { UpdateModalEvent } from '../modal/modal.tsx';
-import sheet from './card.css' with { type: 'css' };
+// TODO: import sheet from './card.css' with { type: 'css' };
 
 export default class Card extends HTMLElement {
-
   selectItem() {
-    const content = `You selected the "${this.getAttribute('title')}"`;
+    const content = `You selected "${this.getAttribute('title')}"`;
 
     window.dispatchEvent(new UpdateModalEvent(content));
   }
@@ -12,7 +11,7 @@ export default class Card extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.render();
-    this.shadowRoot.adoptedStyleSheets = [sheet];
+    // this.shadowRoot.adoptedStyleSheets = [sheet];
   }
 
   render() {

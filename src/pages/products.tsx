@@ -6,11 +6,9 @@ export default class ProductsPage extends HTMLElement {
     await this.render();
   }
 
-  // Fragment tags would be nice here from WCC
-  // https://github.com/ProjectEvergreen/wcc/issues/137
   async render() {
     const products = await getProducts();
-    // support loops in JSX
+    // TODO: support for loops in JSX from WCC would be nice
     // https://github.com/ProjectEvergreen/wcc/discussions/84
     const productsHtml = products.map((product) => {
       const { title, thumbnail } = product;
@@ -24,6 +22,8 @@ export default class ProductsPage extends HTMLElement {
       `
     }).join('\n');
 
+    // TODO: Fragment tags would be nice here from WCC
+    // https://github.com/ProjectEvergreen/wcc/issues/137
     return (
       <main>
         <h2>SSR Page (w/ WCC)</h2>
