@@ -17,9 +17,6 @@ You can now run these npm scripts
 
 ## TODO
 
-1. [ ] [Greenwood JSX plugin is missing a dependency on escodegen](https://github.com/thescientist13/greenwood-jsx/issues/2)
-1. [ ] [Greenwood JSX plugin does not support tsx files and pages](https://github.com/thescientist13/greenwood-jsx/issues/6)
-1. [ ] [Greenwood servePage should only exclude static page handling](https://github.com/thescientist13/greenwood-jsx/issues/8)
-1. [ ] [Have WCC support _.tsx_ files](https://github.com/thescientist13/greenwood-jsx/issues/9)
-1. [ ] validate / add [_.tsx_ support](https://github.com/thescientist13/greenwood-jsx/issues/4)
-1. [ ] [WCC JSX Element type definitions](https://github.com/thescientist13/greenwood-jsx/issues/5)
+1. [ ] (upstream) [WCC w/ TSX support](https://github.com/thescientist13/greenwood-jsx/issues/5)
+1. [ ] (upstream) [Greenwood CLI support for non static pages](https://github.com/thescientist13/greenwood-jsx/issues/8)
+1. [ ] (upstream) [Greenwood JSX Plugin fixes / enhancements](https://github.com/thescientist13/greenwood-jsx/issues/6)
