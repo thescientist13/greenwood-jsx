@@ -1,8 +1,14 @@
 diff --git a/node_modules/@greenwood/plugin-import-jsx/src/index.js b/node_modules/@greenwood/plugin-import-jsx/src/index.js
-index bc7e218..83b93bb 100644
+index bc7e218..6aa1373 100644
 --- a/node_modules/@greenwood/plugin-import-jsx/src/index.js
 +++ b/node_modules/@greenwood/plugin-import-jsx/src/index.js
-@@ -7,22 +7,21 @@ import escodegen from "escodegen";
+@@ -3,28 +3,28 @@
+  * Compile Web Components rendering with JSX using wc-compiler.
+  *
+  */
+-import escodegen from "escodegen";
++// import escodegen from "escodegen";
++import { generate } from 'astring';
  import { parseJsx } from "wc-compiler/src/jsx-loader.js";
  
  class ImportJsxResource {
@@ -27,9 +33,12 @@ index bc7e218..83b93bb 100644
 -    // refactor when WCC refactors
 -    // https://github.com/ProjectEvergreen/wcc/issues/116
      const tree = parseJsx(url);
-     const result = escodegen.generate(tree);
+-    const result = escodegen.generate(tree);
++    const result = generate(tree);
  
-@@ -35,11 +34,11 @@ class ImportJsxResource {
+     return new Response(result, {
+       headers: new Headers({
+@@ -35,11 +35,11 @@ class ImportJsxResource {
  }
  
  /** @type {import('./types/index.d.ts').ImportJsxPlugin} */

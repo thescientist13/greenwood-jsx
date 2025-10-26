@@ -32,7 +32,6 @@
     "@greenwood/plugin-adapter-vercel": "^0.34.0-alpha.0",
     "@greenwood/plugin-import-jsx": "^0.34.0-alpha.0",
     "@greenwood/plugin-import-raw": "^0.34.0-alpha.0",
-    "escodegen": "^2.1.0",
     "patch-package": "^8.0.1",
     "typescript": "^5.8.2"
   }
