@@ -21,7 +21,6 @@ export default class Modal extends HTMLElement {
     });
 
     window.addEventListener('update-modal', (event: CustomEvent) => {
-      console.log({ event });
       this.updateModal(event.detail.content);
     })
   }
