@@ -1,6 +1,6 @@
-type Product = {
-  title: string,
-  thumbnail: string
+export type Product = {
+  title: string;
+  thumbnail: string;
 }
 
 async function getProducts(): Promise<[Product]> {

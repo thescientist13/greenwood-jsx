@@ -1,17 +1,17 @@
-import { UpdateModalEvent } from '../modal/modal.tsx';
 import sheet from './card.css' with { type: 'css' };
 
 export default class Card extends HTMLElement {
   selectItem() {
     const content = `You selected "${this.getAttribute('title')}"`;
 
-    window.dispatchEvent(new UpdateModalEvent(content));
+    window.dispatchEvent(new CustomEvent('update-modal', { detail: { content }}));
   }
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
-    this.render();
     this.shadowRoot.adoptedStyleSheets = [sheet];
+
+    this.render();
   }
 
   render() {
@@ -21,7 +21,7 @@ export default class Card extends HTMLElement {
     return (
       <div>
         <h3>{title}</h3>
-        <img src={thumbnail} alt={title} loading="lazy" width={100} />
+        <img src={thumbnail} alt={title} loading="lazy" />
         <button onclick={this.selectItem}>View Item Details</button>
       </div>
     )
