@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { UpdateModalEvent } from '../modal/modal.tsx';
 // import sheet from './card.css' with { type: 'css' };
 
@@ -23,7 +22,7 @@ export default class Card extends HTMLElement {
     return (
       <div>
         <h3>{title}</h3>
-        <img src={thumbnail} alt={title} loading="lazy" width="100%"/>
+        <img src={thumbnail} alt={title} loading="lazy" width={100} />
         <button onclick={this.selectItem}>View Item Details</button>
       </div>
     )

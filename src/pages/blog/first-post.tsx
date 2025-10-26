@@ -1,4 +1,3 @@
-// @ts-nocheck
 export default class FirstPostsPage extends HTMLElement {
   connectedCallback() {
     this.render();

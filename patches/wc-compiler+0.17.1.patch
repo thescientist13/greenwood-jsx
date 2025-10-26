@@ -10,6 +10,105 @@ index fd31980..0ca4b1a 100644
    // would be nice if we could do this instead, so we could know ahead of time
    // const { inferredObservability } = await import(moduleURL);
    // however, this requires making parseJsx async, but WCC acorn walking is done sync
+diff --git a/node_modules/wc-compiler/src/jsx-runtime.ts b/node_modules/wc-compiler/src/jsx-runtime.ts
+new file mode 100644
+index 0000000..b093b4e
+--- /dev/null
++++ b/node_modules/wc-compiler/src/jsx-runtime.ts
+@@ -0,0 +1,25 @@
++import './jsx';
++
++export function jsx(tag: string | Function, props: Record<string, any>, ...children: any[]): HTMLElement | HTMLElement[] {
++  // Your custom element creation logic
++  if (typeof tag === 'function') {
++    return tag({ ...props, children });
++  }
++  const element = document.createElement(tag);
++  for (const key in props) {
++    if (key !== 'children') {
++      element.setAttribute(key, props[key]);
++    }
++  }
++  children.flat().forEach(child => {
++    if (typeof child === 'string') {
++      element.appendChild(document.createTextNode(child));
++    } else if (child instanceof HTMLElement) {
++      element.appendChild(child);
++    }
++  });
++  return element;
++}
++
++export const jsxs = jsx; // For multiple children
++export const Fragment = (props: { children?: any[] }) => props.children; // For fragments
+\ No newline at end of file
+diff --git a/node_modules/wc-compiler/src/jsx.ts b/node_modules/wc-compiler/src/jsx.ts
+new file mode 100644
+index 0000000..fe6d7c5
+--- /dev/null
++++ b/node_modules/wc-compiler/src/jsx.ts
+@@ -0,0 +1,61 @@
++declare namespace JSX {
++  // TODO: listing these all out manually can't be sustainable...
++  interface IntrinsicElements {
++    // Example for a custom 'my-component' element
++    // 'my-component': {
++    //   prop1: string;
++    //   prop2?: number;
++    //   // Add any other props your custom component expects
++    // };
++
++    // // Example for extending an existing HTML element (e.g., adding a custom attribute to <div>)
++    button: {
++      children?: HTMLElement;
++      onclick?: () => void;
++      autofocus?: boolean;
++    },
++    dialog: {
++      id?: string;
++      class?: string;
++      children?: HTMLElement | HTMLCollection
++    },
++    div: {
++      id?: string;
++      class?: string;
++      children?: HTMLElement | HTMLCollection
++    },
++    h1: {
++      children?: HTMLCollection
++    };
++    h2: {
++      children?: HTMLCollection
++      id?: string;
++    };
++    h3: {
++      children?: HTMLCollection
++      id?: string;
++    };
++    h4: {
++      children?: HTMLCollection
++    };
++    h5: {
++      children?: HTMLCollection
++    };
++    h6: {
++      children?: HTMLCollection
++    };
++    img: {
++      src?: string;
++      alt?: string;
++      loading?: 'lazy';
++      width?: number;
++      height?: number;
++    };
++    main: {
++      children?: HTMLCollection;
++    };
++    p: {
++      children?: HTMLCollection;
++    }
++  }
++}
 diff --git a/node_modules/wc-compiler/src/wcc.js b/node_modules/wc-compiler/src/wcc.js
 index c3ace2d..d476a34 100644
 --- a/node_modules/wc-compiler/src/wcc.js

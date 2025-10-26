@@ -1,4 +1,3 @@
-// @ts-nocheck
 // import sheet from './modal.css' with { type: 'css' };
 
 /**

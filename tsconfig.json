@@ -11,7 +11,8 @@
     "noEmit": true,
     "checkJs": false,
     "noImplicitAny": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "jsxImportSource": "wc-compiler"
   },
   "exclude": [
     "node_modules",

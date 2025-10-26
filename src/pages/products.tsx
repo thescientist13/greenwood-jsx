@@ -1,4 +1,3 @@
-// @ts-nocheck
 import '../components/card/card.tsx';
 import { getProducts } from '../services/products.ts';
 
