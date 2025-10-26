@@ -1,9 +1,9 @@
 export default class FirstPostsPage extends HTMLElement {
   connectedCallback() {
-    this.render();
+    this.render()
   }
 
   render() {
-    return <h2>First Post Page</h2>;
+    return <h2>First Post Page</h2>
   }
 }

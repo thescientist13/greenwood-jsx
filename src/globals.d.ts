@@ -1,7 +1,5 @@
-import type { UpdateModalEvent } from "./components/modal/modal.tsx";
+declare module "*.css" {
+  const sheet: CSSStyleSheet;
 
-declare global {
-  interface GlobalEventHandlersEventMap {
-    'update-modal': UpdateModalEvent;
-  }
+  export default sheet;
 }
