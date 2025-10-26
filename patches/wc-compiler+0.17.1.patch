@@ -1,3 +1,17 @@
+diff --git a/node_modules/wc-compiler/package.json b/node_modules/wc-compiler/package.json
+index a3f43d9..dbb9e0d 100644
+--- a/node_modules/wc-compiler/package.json
++++ b/node_modules/wc-compiler/package.json
+@@ -15,7 +15,8 @@
+       "types": "./src/index.d.ts"
+     },
+     "./register": "./src/register.js",
+-    "./src/jsx-loader.js": "./src/jsx-loader.js"
++    "./src/jsx-loader.js": "./src/jsx-loader.js",
++    "./jsx-runtime": "./src/jsx-runtime.ts"
+   },
+   "author": "Owen Buckley <owen@thegreenhouse.io>",
+   "keywords": [
 diff --git a/node_modules/wc-compiler/src/jsx-loader.js b/node_modules/wc-compiler/src/jsx-loader.js
 index fd31980..0ca4b1a 100644
 --- a/node_modules/wc-compiler/src/jsx-loader.js
