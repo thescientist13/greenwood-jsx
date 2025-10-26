@@ -1,4 +1,4 @@
-// import sheet from './modal.css' with { type: 'css' };
+import sheet from './modal.css' with { type: 'css' };
 
 /**
  * An event that's fired when the modal content needs to be updated
@@ -29,7 +29,7 @@ export default class Modal extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.render();
 
-    // this.shadowRoot.adoptedStyleSheets = [sheet];
+    this.shadowRoot.adoptedStyleSheets = [sheet];
 
     // setup event handlers for updating and closing the dialog
     window.addEventListener('update-modal', (event: UpdateModalEvent) => {

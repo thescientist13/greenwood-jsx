@@ -1,5 +1,5 @@
 import { UpdateModalEvent } from '../modal/modal.tsx';
-// import sheet from './card.css' with { type: 'css' };
+import sheet from './card.css' with { type: 'css' };
 
 export default class Card extends HTMLElement {
 
@@ -12,7 +12,7 @@ export default class Card extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.render();
-    // this.shadowRoot.adoptedStyleSheets = [sheet];
+    this.shadowRoot.adoptedStyleSheets = [sheet];
   }
 
   render() {
