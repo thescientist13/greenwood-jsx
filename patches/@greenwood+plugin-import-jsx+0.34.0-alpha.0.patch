@@ -1,5 +1,5 @@
 diff --git a/node_modules/@greenwood/plugin-import-jsx/src/index.js b/node_modules/@greenwood/plugin-import-jsx/src/index.js
-index bc7e218..6aa1373 100644
+index bc7e218..afe052f 100644
 --- a/node_modules/@greenwood/plugin-import-jsx/src/index.js
 +++ b/node_modules/@greenwood/plugin-import-jsx/src/index.js
 @@ -3,28 +3,28 @@
@@ -43,7 +43,7 @@ index bc7e218..6aa1373 100644
  
  /** @type {import('./types/index.d.ts').ImportJsxPlugin} */
 -const greenwoodPluginImportJsx = () => [
-+const greenwoodPluginImportJsx = (options = {}) => [
++const greenwoodPluginImportJsx = (options = { servePages: true }) => [
    {
      type: "resource",
      name: "plugin-import-jsx:resource",
