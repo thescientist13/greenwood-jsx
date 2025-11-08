@@ -17,6 +17,6 @@ You can now run these npm scripts
 
 ## TODO
 
-1. [ ] (upstream) [WCC w/ TSX support](https://github.com/thescientist13/greenwood-jsx/issues/5)
-1. [ ] (upstream) [Greenwood CLI support for non static pages](https://github.com/thescientist13/greenwood-jsx/issues/8)
-1. [ ] (upstream) [Greenwood JSX Plugin fixes / enhancements](https://github.com/thescientist13/greenwood-jsx/issues/6)
+1. [x] (upstream) [WCC w/ TSX support](https://github.com/thescientist13/greenwood-jsx/issues/5)
+1. [x] (upstream) [Greenwood CLI support for non static pages](https://github.com/thescientist13/greenwood-jsx/issues/8)
+1. [x] (upstream) [Greenwood JSX Plugin fixes / enhancements](https://github.com/thescientist13/greenwood-jsx/issues/6)
