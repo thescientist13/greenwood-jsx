@@ -1,13 +1,11 @@
-import type { Config } from '@greenwood/cli';
 import { greenwoodPluginAdapterVercel } from '@greenwood/plugin-adapter-vercel';
 import { greenwoodPluginImportJsx } from '@greenwood/plugin-import-jsx';
 import { greenwoodPluginImportRaw } from '@greenwood/plugin-import-raw';
+import type { Config } from '@greenwood/cli';
 
 export default {
   plugins: [
-    greenwoodPluginImportJsx({
-      servePages: true
-    }),
+    greenwoodPluginImportJsx(),
     greenwoodPluginImportRaw(),
     greenwoodPluginAdapterVercel({
       runtime: 'nodejs22.x'
