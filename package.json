@@ -27,10 +27,10 @@
     "check": "tsc"
   },
   "devDependencies": {
-    "@greenwood/cli": "^0.34.0-alpha.2",
-    "@greenwood/plugin-adapter-vercel": "^0.34.0-alpha.2",
-    "@greenwood/plugin-import-jsx": "^0.34.0-alpha.2",
-    "@greenwood/plugin-import-raw": "^0.34.0-alpha.2",
+    "@greenwood/cli": "^0.34.0-alpha.6",
+    "@greenwood/plugin-adapter-vercel": "^0.34.0-alpha.6",
+    "@greenwood/plugin-import-jsx": "^0.34.0-alpha.6",
+    "@greenwood/plugin-import-raw": "^0.34.0-alpha.6",
     "typescript": "^5.8.2"
   }
 }
