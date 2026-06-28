@@ -1,0 +1,24 @@
+diff --git a/node_modules/@greenwood/plugin-import-jsx/src/index.js b/node_modules/@greenwood/plugin-import-jsx/src/index.js
+index 028ceaf..3cd2e05 100644
+--- a/node_modules/@greenwood/plugin-import-jsx/src/index.js
++++ b/node_modules/@greenwood/plugin-import-jsx/src/index.js
+@@ -6,6 +6,7 @@
+ import { generate } from "astring";
+ import { parseJsx } from "wc-compiler/jsx-loader";
+ import { mergeImportMap } from "@greenwood/cli/src/lib/node-modules-utils.js";
++import { getMatchingPageByRoute } from "@greenwood/cli/src/lib/graph-utils.js";
+ import { parse } from "node-html-parser";
+ 
+ const importMap = {
+@@ -43,8 +44,10 @@ class ImportJsxResource {
+   }
+ 
+   async shouldIntercept(url, request, response) {
++    const matchingRoute = getMatchingPageByRoute(this.compilation, url.pathname);
++
+     return (
+-      this.inferredObservability && response.headers.get("Content-Type")?.indexOf("text/html") >= 0
++      this.inferredObservability && matchingRoute
+     );
+   }
+ 
