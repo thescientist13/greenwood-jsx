@@ -24,14 +24,12 @@
     "build": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood build",
     "serve": "greenwood serve",
     "start": "npm run build && npm run serve",
-    "check": "tsc",
-    "postinstall": "patch-package"
+    "check": "tsc"
   },
   "devDependencies": {
-    "@greenwood/cli": "^0.34.0-alpha.8",
-    "@greenwood/plugin-adapter-vercel": "^0.34.0-alpha.8",
-    "@greenwood/plugin-import-jsx": "^0.34.0-alpha.8",
-    "patch-package": "^8.0.1",
+    "@greenwood/cli": "^0.34.0-alpha.9",
+    "@greenwood/plugin-adapter-vercel": "^0.34.0-alpha.9",
+    "@greenwood/plugin-import-jsx": "^0.34.0-alpha.9",
     "typescript": "^5.8.2"
   }
 }
