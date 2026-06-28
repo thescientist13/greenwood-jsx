@@ -1,12 +1,12 @@
 import { greenwoodPluginAdapterVercel } from '@greenwood/plugin-adapter-vercel';
 import { greenwoodPluginImportJsx } from '@greenwood/plugin-import-jsx';
-import { greenwoodPluginImportRaw } from '@greenwood/plugin-import-raw';
 import type { Config } from '@greenwood/cli';
 
 export default {
   plugins: [
-    greenwoodPluginImportJsx(),
-    greenwoodPluginImportRaw(),
+    greenwoodPluginImportJsx({
+      inferredObservability: true,
+    }),
     greenwoodPluginAdapterVercel({
       runtime: 'nodejs22.x'
     })

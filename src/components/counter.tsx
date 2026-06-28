@@ -1,13 +1,18 @@
+export const inferredObservability = true;
+
 export default class Counter extends HTMLElement {
-  count: number;
+  count;
 
   constructor() {
     super();
-    this.count = 0;
+    this.count = new Signal.State(0);
   }
 
   connectedCallback() {
-    this.render();
+    if(!this.shadowRoot) {
+      this.attachShadow({ mode: 'open'});
+      this.render();
+    }
   }
 
   render() {
@@ -15,9 +20,9 @@ export default class Counter extends HTMLElement {
 
     return (
       <div>
-        <button onclick={this.count -= 1}> -</button>
-        <span>You have clicked <span class="red">{count}</span> times</span>
-        <button onclick={this.count += 1}> +</button>
+        <button onclick={() => this.count.set(this.count.get() - 1)}> -</button>
+        <span>You have clicked {count.get()} times</span>
+        <button onclick={() => this.count.set(this.count.get() + 1)}> +</button>
       </div>
     );
   }

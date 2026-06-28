@@ -1,5 +1,6 @@
-declare module "*.css" {
-  const sheet: CSSStyleSheet;
+// alias Signal to avoid name conflicts with the global Signal type
+import { Signal as SignalInterface } from "signal-polyfill";
 
-  export default sheet;
+declare global {
+  const Signal: typeof SignalInterface;
 }
