@@ -27,9 +27,9 @@
     "check": "tsc"
   },
   "devDependencies": {
-    "@greenwood/cli": "^0.34.0-alpha.9",
-    "@greenwood/plugin-adapter-vercel": "^0.34.0-alpha.9",
-    "@greenwood/plugin-import-jsx": "^0.34.0-alpha.9",
+    "@greenwood/cli": "^0.34.0",
+    "@greenwood/plugin-adapter-vercel": "^0.34.0",
+    "@greenwood/plugin-import-jsx": "^0.34.0",
     "typescript": "^5.8.2"
   }
 }
